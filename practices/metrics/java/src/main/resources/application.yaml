@@ -1,0 +1,45 @@
+
+server:
+    port: 8000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
+spring:
+    # jackson:
+    #     property-naming-strategy: SNAKE_CASE
+    # profiles:
+    #     active: local
+    # redis:
+    #     host: localhost
+    #     password: finotek1004
+    #     port: 6379
+    datasource:
+        url: jdbc:mysql://localhost:3306/SSANIJARO_SHINHANCARD?characterEncoding=utf8&serverTimezone=Asia/Seoul
+        username: root
+        password: finotek1004
+        platform: mysql
+        sql-script-encoding: UTF-8
+    jpa:
+        properties:
+            hibernate:
+                show_sql: true
+                format_sql: true
+                use_sql_comments: true
+                encoding: UTF-8
+                jdbc:
+                    time_zone: Asia/Seoul
+        database: mysql
+        hibernate:
+            ddl-auto: create # 시작될 때 데이터베이스
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # table 명 대문자로 인식하게 하기.
+    # data:
+    #     mongodb:
+    #         host: localhost
+    #         port: 27017
+    #         username: SSANIJARO_ADMIN
+    #         password: finotek1004!
+    #         database: ssanijaro
